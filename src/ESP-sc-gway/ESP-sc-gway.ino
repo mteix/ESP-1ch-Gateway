@@ -394,7 +394,10 @@ void setup() {
 
 	msg_oLED("WIFI STA");
 	WiFi.mode(WIFI_STA);									// WiFi settings for connections
-	WiFi.setAutoConnect(true);
+
+  // // mjt: removed autoconnect
+  // // 
+	// WiFi.setAutoConnect(true);
 	WiFi.macAddress(MAC_array);
     sprintf(MAC_char,"%02x:%02x:%02x:%02x:%02x:%02x",
 		MAC_array[0],MAC_array[1],MAC_array[2],MAC_array[3],MAC_array[4],MAC_array[5]);
