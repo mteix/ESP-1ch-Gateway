@@ -11,6 +11,7 @@
  */
 
 #include "WiFiManager.h"
+#include <WiFi.h>
 
 #if defined(ESP8266) || defined(ESP32)
 
@@ -2890,22 +2891,54 @@ void WiFiManager::WiFiEvent(WiFiEvent_t event,system_event_info_t info){
 }
 #endif
 
-void WiFiManager::WiFi_autoReconnect(){
-  #ifdef ESP8266
-    WiFi.setAutoReconnect(_wifiAutoReconnect);
-  #elif defined(ESP32)
-    // if(_wifiAutoReconnect){
-      // @todo move to seperate method, used for event listener now
-      // //  MJT: original code, replaced by lambda   // 
-      // DEBUG_WM(DEBUG_VERBOSE,"ESP32 event handler enabled");
-      // using namespace std::placeholders;
-      // WiFi.onEvent(std::bind(&WiFiManager::WiFiEvent,this,_1,_2));
+// // // Another change in file
 
-    DEBUG_WM(DEBUG_VERBOSE,"ESP32 event handler enabled");
-    WiFi.onEvent([this](WiFiEvent_t event, WiFiEventInfo_t info) {
-    this->WiFiEvent(event, info);
-    // }
-  #endif
-}
+// #ifdef ESP32
+// void WiFiManager::WiFiEvent(system_event_id_t event, system_event_info_t info) {  // Use system_event types
+//   if(!_hasBegun){
+//     return;
+//   } 
+
+//   if (event == SYSTEM_EVENT_STA_DISCONNECTED) { // Correct event comparison
+//     DEBUG_WM(DEBUG_VERBOSE,"[EVENT] WIFI_REASON:", info.disconnected.reason);
+//     // ... (rest of your disconnect handling logic) ...
+//   } else if (event == SYSTEM_EVENT_SCAN_DONE) {  // Correct event comparison
+//     uint16_t scans = WiFi.scanComplete();
+//     WiFi_scanComplete(scans);
+//   }
+// }
+// #endif
+
+
+
+// void WiFiManager::WiFi_autoReconnect(){
+//   #ifdef ESP8266
+//     WiFi.setAutoReconnect(_wifiAutoReconnect);
+//   #elif defined(ESP32)
+//     // if(_wifiAutoReconnect){
+//       // @todo move to seperate method, used for event listener now
+//       // // ---------- ORIG 
+//       // DEBUG_WM(DEBUG_VERBOSE,"ESP32 event handler enabled");
+//       // using namespace std::placeholders;
+//       // WiFi.onEvent(std::bind(&WiFiManager::WiFiEvent,this,_1,_2));
+//       // //  ----------------------------------------------------
+// // // Changed MJT
+// //    DEBUG_WM(DEBUG_VERBOSE,"ESP32 event handler enabled");
+// //   WiFi.onEvent([this](WiFiEvent_t event, WiFiEventInfo_t info) {
+// //     this->WiFiEvent(event, info);
+// //   });
+
+//  // //  ----------------------------------------------------
+
+//   DEBUG_WM(DEBUG_VERBOSE,"ESP32 event handler enabled");
+
+//     WiFi.onEvent([this](system_event_id_t event, system_event_info_t info) { // Consistent system_event types
+//       this->WiFiEvent(event, info);
+//     });
+//     // }
+//   #endif
+// }
 
 #endif
+
+
