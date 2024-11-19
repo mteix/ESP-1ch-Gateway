@@ -2896,9 +2896,14 @@ void WiFiManager::WiFi_autoReconnect(){
   #elif defined(ESP32)
     // if(_wifiAutoReconnect){
       // @todo move to seperate method, used for event listener now
-      DEBUG_WM(DEBUG_VERBOSE,"ESP32 event handler enabled");
-      using namespace std::placeholders;
-      WiFi.onEvent(std::bind(&WiFiManager::WiFiEvent,this,_1,_2));
+      // //  MJT: original code, replaced by lambda   // 
+      // DEBUG_WM(DEBUG_VERBOSE,"ESP32 event handler enabled");
+      // using namespace std::placeholders;
+      // WiFi.onEvent(std::bind(&WiFiManager::WiFiEvent,this,_1,_2));
+
+    DEBUG_WM(DEBUG_VERBOSE,"ESP32 event handler enabled");
+    WiFi.onEvent([this](WiFiEvent_t event, WiFiEventInfo_t info) {
+    this->WiFiEvent(event, info);
     // }
   #endif
 }

@@ -249,9 +249,11 @@ class OLEDDisplay : public Print {
     // Send a command to the display (low level function)
     virtual void sendCommand(uint8_t com) {};
 
-    // Connect to the display
-    virtual bool connect() {};
+    // // Connect to the display
+    // virtual bool connect() {};
 
+    // --> MJT change:
+    virtual bool connect();
     // Send all the init commands
     void sendInitCommands();
 
