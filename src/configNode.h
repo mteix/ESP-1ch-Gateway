@@ -114,17 +114,17 @@ wpas wpa[] = {
 // Define the name of the accesspoint if the gateway is in accesspoint mode (is
 // getting WiFi SSID and password using WiFiManager). 
 // If you do not need them, comment out.
-//#define AP_NAME ""
-//#define AP_PASSWD ""
+#define AP_NAME "Elza"
+#define AP_PASSWD "S@antinT@asquini2022"
 
 
 // Gateway Ident definitions. Where is the gateway located?
-#define _DESCRIPTION "ESP Gateway"			// Name of the gateway
-#define _EMAIL "mw12554@hotmail.com"		// Owner
-#define _PLATFORM "ESP8266"
-#define _LAT 52.237367
-#define _LON 5.978654
-#define _ALT 14								// Altitude
+#define _DESCRIPTION "MANGROVESCOPE GW"			// Name of the gateway
+#define _EMAIL "mjt@unicamp.br"		// Owner
+#define _PLATFORM "ESP32"
+#define _LAT -23.547982
+#define _LON -46747515
+#define _ALT 764								// Altitude
 
 
 // For asserting and testing the following defines are used.
