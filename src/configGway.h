@@ -87,7 +87,7 @@
 // AS923		(Not Used)
 // You can find the definitions in "loraModem.h" and frequencies in
 // See https://www.thethingsnetwork.org/docs/lorawan/frequency-plans.html
-#define EU863_870 1
+#define US902_928 1
  
 
 // Define the CLASS mode of the gateway
@@ -117,7 +117,7 @@
 // the webserver and it will be stored in SPIFF
 // NOTE: The frequency is set in the loraModem.h file and is default 868100000 Hz.
 #if !defined _SPREADING
-#	define _SPREADING SF9
+#	define _SPREADING SF7
 #endif
 
 // Channel Activity Detection
@@ -165,9 +165,10 @@
 //	2: COMRESULT pin out
 //	3: ESP32, Wemos pin out (Not used)
 //	4: ESP32, Heltec and TTGO pin out (should work for Heltec, 433 and Oled too).
-//	5: Other, define your own in loraModem.h (does not include GPS Code)
+//	5: ESP32/Heltec Wifi LoRA 32(V2) HTIT-WB32LA board with 0.9" OLED
+//  6: TODO: adapt 5 fot LoRa 32 (V3)
 #if !defined _PIN_OUT
-#	define _PIN_OUT 1
+#	define _PIN_OUT 5
 #endif
 
 
