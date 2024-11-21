@@ -402,9 +402,9 @@ void setup() {
 	msg_oLED("WIFI STA");
 	WiFi.mode(WIFI_STA);									// WiFi settings for connections
 
-  // // mjt: removed autoconnect
-  // // 
-	// WiFi.setAutoConnect(true);
+  // mjt: removed autoconnect
+  // 
+	WiFi.setAutoConnect(true);
 	WiFi.macAddress(MAC_array);
     sprintf(MAC_char,"%02x:%02x:%02x:%02x:%02x:%02x",
 		MAC_array[0],MAC_array[1],MAC_array[2],MAC_array[3],MAC_array[4],MAC_array[5]);
@@ -415,6 +415,10 @@ void setup() {
 
 
 	// Setup WiFi UDP connection. Give it some time and retry x times. '0' means try forever
+
+	// Debugging
+
+	mPrint("MJT ---- > WLAN CONNECT");
 	while (WlanConnect(0) <= 0) {
 #		if _MONITOR>=1
 		if ((debug>=0) && (pdebug & P_MAIN)) {
@@ -424,7 +428,7 @@ void setup() {
 	}
 
 	yield();
-
+	mPrint("MJT ---- > WLAN CONNECT (2)");
 #	if _MONITOR>=1
 	if ((debug>=1) & (pdebug & P_MAIN)) {
 		mPrint("setup:: WlanConnect="+String(WiFi.SSID()) );

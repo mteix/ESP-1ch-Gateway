@@ -115,7 +115,7 @@ wpas wpa[] = {
 // getting WiFi SSID and password using WiFiManager). 
 // If you do not need them, comment out.
 #define AP_NAME "Elza"
-#define AP_PASSWD "S@antinT@asquini2022"
+#define AP_PASSWD "S@ntinT@asquini2022"
 
 
 // Gateway Ident definitions. Where is the gateway located?

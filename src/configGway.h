@@ -265,8 +265,8 @@
 
 // ntp
 // Please add daylight saving time to NTP_TIMEZONES when desired
-#define NTP_TIMESERVER "nl.pool.ntp.org"	// Country and region specific
-#define NTP_TIMEZONES	2					// How far is our Timezone from UTC (excl daylight saving/summer time)
+#define NTP_TIMESERVER "pool.ntp.br"	// Country and region specific
+#define NTP_TIMEZONES	3					// How far is our Timezone from UTC (excl daylight saving/summer time)
 #define SECS_IN_HOUR	3600
 #define _NTP_INTR 0							// Do NTP processing with interrupts or in loop();
 
@@ -324,7 +324,7 @@
 #if !defined _MAXSEEN
 #	define _MAXSEEN 15
 #endif
-#define _SEENFILE "/gwaySeen.txt"
+#define _SEENFILE "\\gwaySeen.txt"
 
 
 // Define the maximum amount of items we monitor on the screen
